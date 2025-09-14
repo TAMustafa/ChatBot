@@ -46,4 +46,5 @@ htmlcov/
 data/
 tests/
 scripts/
+docs/
 uv.lock
