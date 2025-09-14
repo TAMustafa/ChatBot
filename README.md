@@ -119,8 +119,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- [FastAPI](https://fastapi.tiangolo.com/)
-- [React](https://reactjs.org/)
-- [Vite](https://vitejs.dev/)
+- [Windsurf](https://windsurf.com/)
 
 ---
