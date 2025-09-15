@@ -13,10 +13,20 @@ A modern chat UI that connects to the backend `/api/chat` endpoint and renders s
 
 ## Configure & Run
 
+1) Configure backend URL (recommended via `.env.local`):
+
+Create `frontend/.env.local` with:
+
+```
+NEXT_PUBLIC_BACKEND_URL=http://localhost:8000
+```
+
+2) Install and start the dev server:
+
 ```bash
 cd frontend
 npm install
-NEXT_PUBLIC_BACKEND_URL=http://localhost:8000 npm run dev
+npm run dev
 ```
 
 Open http://localhost:3000

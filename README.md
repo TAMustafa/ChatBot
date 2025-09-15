@@ -1,4 +1,4 @@
-# ChatBot Project
+# Q&AChatBot
 
 A modern, full-stack chatbot application built with a React frontend and Python FastAPI backend.
 
@@ -12,8 +12,8 @@ A modern, full-stack chatbot application built with a React frontend and Python 
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: React, TypeScript, Vite
-- **Backend**: Python, FastAPI
+- **Frontend**: Next.js (React + TypeScript), Tailwind CSS
+- **Backend**: Python, FastAPI, Langchain
 - **Database**: Pinecone
 - **Containerization**: Docker
 
@@ -36,8 +36,8 @@ ChatBot/
 
 ### Prerequisites
 
-- Node.js (v16+)
-- Python (3.9+)
+- Node.js (v18+)
+- Python (3.12+)
 - Docker (**optional**, for containerized deployment)
 
 ### Installation
@@ -89,20 +89,35 @@ docker-compose up --build
 ## 📝 Environment Variables
 
 ### Backend
-Create a `.env` file in the `backend` directory:
+Create a `.env` file in either the repo root or the `backend/` directory (both are loaded; `backend/.env` overrides root during dev):
 
 ```
-# Backend configuration
+# App
 APP_ENV=development
-SECRET_KEY=your-secret-key
-DATABASE_URL=your-database-uri
+LOG_LEVEL=INFO
+HOST=0.0.0.0
+PORT=8000
+
+# Providers
+OPENAI_API_KEY=your-openai-key
+
+# Pinecone
+PINECONE_API_KEY=your-pinecone-key
+PINECONE_INDEX=chatbot-faq-index
+PINECONE_NAMESPACE=default
+
+# Models (optional overrides)
+EMBEDDING_MODEL=text-embedding-3-small
+CHAT_MODEL=gpt-4o-mini
+TEMPERATURE=0.2
+MAX_TOKENS=512
 ```
 
 ### Frontend
-Create a `.env` file in the `frontend` directory:
+Create a `.env.local` file in the `frontend` directory (Next.js will load this automatically):
 
 ```
-VITE_API_URL=http://localhost:8000
+NEXT_PUBLIC_BACKEND_URL=http://localhost:8000
 ```
 
 ## 🤝 Contributing

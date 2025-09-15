@@ -34,11 +34,15 @@ Key variables:
 
 ## Install & Run
 
-Using uv:
+Install with pip (editable) or your preferred workflow:
 ```bash
 cd backend
-uv sync
-uv run python -m src.main
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\\Scripts\\activate
+pip install -e .
+
+# Start the API with Uvicorn (development)
+uvicorn src.main:app --reload
 ```
 
 API available at http://localhost:8000
@@ -49,15 +53,15 @@ API available at http://localhost:8000
    - For `text-embedding-3-small` the vector __dimension is 1536__.
    - Use the helper:
      ```bash
-     uv run python scripts/setup_pinecone.py
+     python scripts/setup_pinecone.py
      ```
      If an existing index has a different dimension, delete it in Pinecone Console and re-run.
 
 2) Ingest files (PDF/Markdown/JSON) under `backend/data/` or any path:
    ```bash
-   uv run python scripts/ingest.py ./data
+   python scripts/ingest.py ./data
    # or one file
-   uv run python scripts/ingest.py ./data/myfile.pdf
+   python scripts/ingest.py ./data/myfile.pdf
    ```
 
 ## Development Notes
